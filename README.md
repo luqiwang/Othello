@@ -1,5 +1,7 @@
 # Othello
 
+A chess game built with React, Phoenix.
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
