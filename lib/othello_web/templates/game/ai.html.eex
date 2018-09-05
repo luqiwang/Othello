@@ -1,0 +1,12 @@
+<script>
+window.ai = true
+window.play_cfg = {user: "You"}
+</script>
+<div class="row">
+  <div class="col">
+    <h1 class="banner">LET'S OTHELLO!<br><p>Play With AI</p ></h1>
+    <div id="game">
+      <p>React app not loaded...</p >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<script>
+ window.play_cfg = {
+   user: "<%= escape_javascript @user %>",
+   game: "<%= escape_javascript @game %>",
+   host: <%= @host %>,
+ };
+</script>
+<div class="row">
+  <div class="col">
+    <h1 class="banner">LET'S OTHELLO!<br><p>ROOM: <%= @game %></p ></h1>
+    <script>
+      window.gameName = "<%= @game %>";
+    </script>
+    <div id="game">
+      <p>React app not loaded...</p >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<body class="index-body">
+
+<script>
+  // let selected = $('#banner').val();
+  function createRoom () {
+    $(".create-room-btn").hide();
+    $(".join-room-btn").hide();
+    $(".form-join").hide();
+    $(".form-create").show();
+    $(".ai-btn").hide();
+  }
+
+  function joinRoom () {
+    $(".create-room-btn").hide();
+    $(".join-room-btn").hide();
+    $(".form-create").hide();
+    $(".form-join").show();
+    $(".ai-btn").hide();
+  }
+
+  function joinai() {
+    window.location = '/ai';
+  }
+
+  function refresh () {
+    location.reload();
+  }
+
+
+</script>
+
+<div class="index-page container">
+  <h1 id="index-header">Othello Game</h1>
+  <button class="btn-index create-room-btn btn btn-secondary" onclick="createRoom()" >Create A Room</button>
+  <button class="btn-index join-room-btn btn btn-secondary" onclick="joinRoom()" > Join A Room</button>
+  <button class="btn-index ai-btn btn btn-secondary" onclick="joinai()">VS Computer</button>
+  <div class="form-join">
+    <%= form_for @conn, "/games/join", [as: :join_data], fn f -> %>
+    <div class="form-group">
+      <%= label(f, :user, "Your Name", class: "input-label") %>
+      <%= text_input(f, :user, class: "form-control") %>
+    </div>
+    <div class="form-group">
+        Available Play Rooms:
+        <%= select(f, :game, @rooms, prompt: "Choose your room", class: "form-control") %>
+        <br>
+      </div>
+    <%= submit "Join", class: "btn btn-primary btn-half" %>
+    <% end %>
+    <br>
+    <button class="btn btn-primary btn-half" onclick="refresh()"> Return </button>
+  </div>
+
+  <div class="form-create">
+    <%= form_for @conn, "/games/join", [as: :join_data], fn f -> %>
+    <div class="form-group">
+      <%= label(f, :user, "Your Name", class: "input-label") %>
+      <%= text_input(f, :user, class: "form-control") %>
+    </div>
+
+    <div class="form-group">
+      <%= label(f, :game, "Game Room No.", class: "input-label") %>
+      <%= text_input(f, :game, class: "form-control") %>
+    </div>
+
+    <br>
+    <%= submit "Create", class: "btn btn-primary btn-half" %>
+    <% end %>
+    <br>
+    <button class="btn btn-primary btn-half" onclick="refresh()"> Return </button>
+  </div>
+</div>
+
+
+
+<!-- <div class="card">
+<div class="card-body">
+  <h5 class="card-title">Card title</h5>
+  <a href="#" class="enter-btn btn btn-primary">Enter Room</a>
+</div>
+</div> -->
+
+
+<script>
+	$('.form-join').hide();
+	$('.form-create').hide();
+</script>
+
+</body>
